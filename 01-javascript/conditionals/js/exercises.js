@@ -50,17 +50,25 @@ console.log( helloWorld("jp") );
 //
 
 const assignGrade = function (score) {
-  // if score < 50
-    // return 'F'
-  // else if score <= 60
-    // return 'D'
-  // else if score <= 70
-    // return 'C'
-  // else if score <= 80
-    // return 'B'
-  // else
-    // return 'A'
+  if (score < 50) {
+    return 'F';
+  } else if (score <= 60) {
+    return 'D';
+  } else if (score <= 70) {
+    return 'C';
+  } else if (score <= 80) {
+    return 'B';
+  } else {
+    return 'A'
+  }
 };
+
+console.log( assignGrade(10) );
+console.log( assignGrade(55) );
+console.log( assignGrade(65) );
+console.log( assignGrade(75) );
+console.log( assignGrade(85) );
+console.log( assignGrade(95) );
 
 // ## The Pluralizer
 //
@@ -69,3 +77,15 @@ const assignGrade = function (score) {
 // - returns the number and pluralized form, like "5 cats" or "1 dog".
 // - Call that function for a few different scores and log the result to make sure it works.
 // - Bonus: Make it handle a few collective nouns like "sheep" and "geese".
+
+const pluralize = function (noun, number) {
+  let text = `${ number } ${ noun }`;
+  if (number == 1) {
+    return text;
+  } else {
+    return text + 's'
+  }
+};
+
+console.log( pluralize('cat', 5) );
+console.log( pluralize('dog', 1) );
