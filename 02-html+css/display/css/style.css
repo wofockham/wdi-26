@@ -1,0 +1,23 @@
+body {
+  background-color: yellow;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  text-align: center; /* horizontal centering */
+  line-height: 300px; /* sneaky vertical centering */
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
