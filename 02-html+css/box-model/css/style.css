@@ -1,0 +1,25 @@
+/*
+This is a common rule in modern CSS:
+
+* {
+  box-sizing: border-box;
+}
+
+*/
+
+body {
+  background-color: yellow;
+}
+
+.old {
+  width: 300px;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+.new {
+  box-sizing: border-box;
+  width: 300px;
+  border: 1px solid black;
+  padding: 50px;
+}
