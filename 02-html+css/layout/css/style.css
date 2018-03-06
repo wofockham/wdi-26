@@ -1,0 +1,61 @@
+/** {
+  border: 1px solid green;
+}*/
+
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+
+body {
+  background-color: #222; /* #222222; */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arimo', sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  background-color: #ccc;
+  padding: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+nav {
+  text-align: right;
+}
+
+nav a {
+  color: green;
+}
+
+h1 {
+  text-align: center;
+  background-color: #222;
+  color: #ccc;
+  padding: 1em;
+}
+
+main {
+  display: inline-block;
+  width: 75%;
+}
+
+main img {
+  display: block; /* block required to center using the margin below */
+  margin: 0 auto; /* Variadic */
+}
+
+aside {
+  display: inline-block;
+  width: 21%; /* 75% + 21% is about 100% */
+  vertical-align: top;
+  background-color: #cfc;
+  padding: 1em;
+  margin-top: 63px;
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px #222;
+}
+
+aside ul {
+  padding-left: 17px;
+}
