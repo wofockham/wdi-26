@@ -1,0 +1,62 @@
+body {
+  background-color: yellow;
+  min-height: 1000em;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  text-align: center; /* horizontal centering */
+  line-height: 300px; /* sneaky vertical centering */
+}
+
+.small-box {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.static {
+  position: static; /* Default */
+}
+
+.absolute {
+  position: absolute;
+  top: 300px;
+  right: 200px;
+}
+
+.fixed {
+  position: fixed;
+  top: 300px;
+  right: 200px;
+}
+
+.relative {
+  position: relative;
+  width: 900px;
+  height: 900px;
+  line-height: 900px;
+}
+
+.red {
+  background-color: red;
+  top: 275px;
+  right: 175px;
+  z-index: 300;
+}
+
+.green {
+  background-color: green;
+  top: 300px;
+  right: 200px;
+  z-index: 200;
+}
+
+.blue {
+  background-color: blue;
+  top: 325px;
+  right: 225px;
+  z-index: 100;
+}
