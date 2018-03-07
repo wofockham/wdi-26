@@ -10,6 +10,16 @@ const books = [{
     }
 ];
 
+const list = document.createElement('ul');
+
 for (let i = 0; i < books.length; i++) {
-  console.log( books[i] );
+  let book = books[i];
+  let item = document.createElement('li');
+  item.innerHTML = `${book.title} by ${book.author}`;
+  if (book.alreadyRead) {
+    item.className = 'read';
+  }
+  list.appendChild( item );
 }
+
+document.body.appendChild( list );
