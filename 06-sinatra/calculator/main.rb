@@ -11,5 +11,18 @@ get '/about' do
 end
 
 get '/calc' do
-  binding.pry
+  # We have the user's input
+  @x = params[:x].to_f
+  @y = params[:y].to_f
+
+  # Calculate the result
+  @result = case params[:operator]
+  when '+' then @x + @y
+  when '-' then @x - @y
+  when '*' then @x * @y
+  when '/' then @x / @y
+  end
+
+  # Display the result
+  erb :calc
 end
