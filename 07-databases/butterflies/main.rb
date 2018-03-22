@@ -16,6 +16,18 @@ get '/butterflies' do
   erb :butterflies_index
 end
 
+# New
+get '/butterflies/new' do
+  erb :butterflies_new
+end
+
+# Create
+post '/butterflies' do
+  db = SQLite3::Database.new 'database.sqlite3'
+  db.execute "INSERT INTO butterflies (name, family, image) VALUES ('#{params[:name]}', '#{params[:family]}', '#{params[:image]}')"
+  redirect to('/butterflies') # GET request
+end
+
 # Show
 get '/butterflies/:id' do
   # Fetch this butterfly from the database
@@ -23,7 +35,7 @@ get '/butterflies/:id' do
   db.results_as_hash = true
 
   @butterfly = db.execute "SELECT * FROM butterflies WHERE id = #{ params[:id] }"
-  # Show this butterfly
+  @butterfly = @butterfly.first # Stripping away the outer array
 
-  erb :butterfly_show
+  erb :butterflies_show
 end
