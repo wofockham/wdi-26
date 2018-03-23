@@ -16,6 +16,9 @@ ActiveRecord::Base.logger = Logger.new(STDERR)
 class Butterfly < ActiveRecord::Base
 end
 
+class Plant < ActiveRecord::Base
+end
+
 get '/' do
   erb :home
 end
@@ -68,6 +71,54 @@ get '/butterflies/:id/delete' do
   butterfly = Butterfly.find params[:id]
   butterfly.destroy
   redirect to('/butterflies')
+end
+
+# Index
+get '/plants' do
+  @plants = Plant.all
+  erb :plants_index
+end
+
+# New
+get '/plants/new' do
+  erb :plants_new
+end
+
+# Create
+post '/plants' do
+  plant = Plant.new
+  plant.name = params[:name]
+  plant.image = params[:image]
+  plant.save
+  redirect to("/plants/#{ plant.id }")
+end
+
+# Show
+get '/plants/:id' do
+  @plant = Plant.find params[:id]
+  erb :plants_show
+end
+
+# Edit
+get '/plants/:id/edit' do
+  @plant = Plant.find params[:id]
+  erb :plants_edit
+end
+
+# Update
+post '/plants/:id' do
+  plant = Plant.find params[:id]
+  plant.name = params[:name]
+  plant.image = params[:image]
+  plant.save
+  redirect to("/plants/#{ plant.id }") # GET request
+end
+
+# Delete
+get '/plants/:id/delete' do
+  plant = Plant.find params[:id]
+  plant.destroy
+  redirect to("/plants")
 end
 
 after do
