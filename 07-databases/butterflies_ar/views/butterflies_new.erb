@@ -8,5 +8,13 @@
   <label>Image:</label>
   <input type="url" name="image" placeholder="http://...">
 
+  <label>Larval plant:</label>
+  <select name="plant_id">
+    <option></option>
+    <% Plant.all.each do |plant| %>
+      <option value="<%= plant.id %>"><%= plant.name %></option>
+    <% end %>
+  </select>
+
   <button>Create butterfly</button>
 </form>

@@ -1,6 +1,13 @@
 <h2><%= @butterfly['name'] %></h2>
 <h3>Family: <%= @butterfly['family'] %></h3>
 
+<% unless @butterfly.plant.nil? %>
+  <h3>
+    Larval plant:
+    <a href="/plants/<%= @butterfly.plant.id %>"><%= @butterfly.plant.name %></a>
+  </h3>
+<% end %>
+
 <% unless @butterfly['image'].nil? || @butterfly['image'].empty? %>
   <img class="feature" src="<%= @butterfly['image'] %>" alt="<%= @butterfly['name'] %>">
 <% end %>
