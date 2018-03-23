@@ -1,0 +1,19 @@
+body {
+  background-color: purple;
+  color: white;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+a {
+  color: inherit;
+}
+
+img.feature {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
