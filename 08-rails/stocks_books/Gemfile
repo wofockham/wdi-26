@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'stock_quote' # This probably won't work
+gem 'stock_quote' # But it did work and isn't that fantastic
 gem 'httparty'
 
 group :development, :test do
