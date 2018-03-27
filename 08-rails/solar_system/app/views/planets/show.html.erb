@@ -1,0 +1,21 @@
+<h2><%= @planet.name %></h2>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Orbit</td>
+      <td>Diameter</td>
+      <td>Mass</td>
+      <td>Moons</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @planet.name %></td>
+      <td><%= @planet.orbit %></td>
+      <td><%= number_to_human @planet.diameter %></td>
+      <td><%= number_to_human @planet.mass %></td>
+      <td><%= @planet.moons %></td>
+    </tr>
+  </tbody>
+</table>

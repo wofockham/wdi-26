@@ -1,0 +1,22 @@
+<h2>New Planet</h2>
+<form action="/planets" method="post">
+  <label>Name:</label>
+  <input type="text" name="planet[name]" placeholder="Gallifrey">
+
+  <label>Image:</label>
+  <input type="url" name="planet[image]" placeholder="http://...">
+
+  <label>Orbit:</label>
+  <input type="number" name="planet[orbit]" placeholder="(in Earth days)">
+
+  <label>Diameter:</label>
+  <input type="number" name="planet[diameter]" placeholder="10000000">
+
+  <label>Mass:</label>
+  <input type="number" name="planet[mass]" placeholder="10000000">
+
+  <label>Moons:</label>
+  <input type="number" name="planet[moons]" placeholder="7">
+
+  <button>Create planet</button>
+</form>
