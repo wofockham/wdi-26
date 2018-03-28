@@ -9,10 +9,13 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="">
       <nav>
         <%= link_to 'All Artists', artists_path %>
         <%= link_to 'New Artist', new_artist_path %>
+        |
+        <%= link_to 'All Works', works_path %>
+        <%= link_to 'New Work', new_work_path %>
       </nav>
       <%= yield %>
     </div>
