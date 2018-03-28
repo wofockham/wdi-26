@@ -9,8 +9,9 @@
 #             PATCH  /artists/:id(.:format)      artists#update
 #             PUT    /artists/:id(.:format)      artists#update
 #             DELETE /artists/:id(.:format)      artists#destroy
-# 
+#
 
 Rails.application.routes.draw do
   resources :artists # Plural
+  resources :works
 end
