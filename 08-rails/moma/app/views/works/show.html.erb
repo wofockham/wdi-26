@@ -4,6 +4,9 @@
 
 <ul>
   <li><%= @work.title %></li>
+  <% if @work.artist.present? %>
+    <li><%= link_to @work.artist.name, @work.artist %></li>
+  <% end %>
   <li><%= @work.year %></li>
   <li><%= @work.medium %></li>
   <li><%= @work.style %></li>

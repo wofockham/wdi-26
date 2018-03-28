@@ -10,7 +10,9 @@
 #  image      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  artist_id  :integer
 #
 
 class Work < ActiveRecord::Base
+  belongs_to :artist, :optional => true
 end

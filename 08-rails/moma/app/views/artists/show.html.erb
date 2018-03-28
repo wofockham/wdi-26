@@ -8,6 +8,13 @@
 </ul>
 <%= image_tag @artist.image, :alt => @artist.name, :class => 'feature' %>
 
+<% unless @artist.works.empty? %>
+  <h2>Works</h2>
+  <% @artist.works.each do |work| %>
+    <%= link_to image_tag(work.image, :alt => work.title, :class => 'thumb'), work, :title => work.title %>
+  <% end %>
+<% end %>
+
 <div class="controls">
   <%= link_to 'Edit artist', edit_artist_path(@artist) %>
   <%= link_to 'Delete artist', @artist, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
