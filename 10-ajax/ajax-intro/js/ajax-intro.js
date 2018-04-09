@@ -9,6 +9,7 @@ const fetchFact = function () {
       return; // Not ready yet
     }
 
+    // If we get here, the responseText should be ready:
     const info = JSON.parse( xhr.responseText );
     const p = document.createElement('p');
     p.innerHTML = '<strong>' + info.number + '</strong>: ' + info.text;
@@ -22,3 +23,6 @@ const fetchFact = function () {
 
 const button = document.getElementById('fetch');
 button.addEventListener('click', fetchFact);
+
+// We can also fire off the first fact request manually.
+fetchFact();
