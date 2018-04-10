@@ -43,4 +43,27 @@ $(document).ready(function () {
     const query = $('#query').val();
     searchFlickr( query );
   });
+
+  $(window).on('scroll', function () {
+    const documentHeight = $(document).height();
+    const windowHeight = $(window).height();
+    const scrollTop = $(document).scrollTop();
+
+    const scrollBottom = documentHeight - (windowHeight + scrollTop);
+
+    if (scrollBottom < 500) { // Tweak this value
+      const query = $('#query').val();
+      searchFlickr( query ); // Don't make too requests: throttle
+    }
+  });
 });
+
+/*
+
+TODO:
+
+throttle the requests -- don't make too many requests
+pagination -- eventually we should all possible matching results
+stop at end of the results -- no more requests
+bonus: whatever you like
+*/
