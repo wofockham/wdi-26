@@ -1,12 +1,10 @@
 const state = {
   page: 1,
-  requestInProgress: false,
   lastPage: false
 };
 
 const searchFlickr = function (term) {
-  if (state.requestInProgress || state.lastPage) { return; }
-  state.requestInProgress = true;
+  if (state.lastPage) { return; }
 
   console.log('Searching flickr for', term);
 
@@ -22,7 +20,6 @@ const searchFlickr = function (term) {
     format: 'json',
     page: state.page++
   }).done( showImages ).done(function (r) {
-    state.requestInProgress = false;
     if (r.photos.page >= r.photos.pages) {
       state.lastPage = true;
     }
@@ -61,6 +58,8 @@ $(document).ready(function () {
     searchFlickr( query );
   });
 
+  const throttledSearchFlickr = _.throttle( searchFlickr, 6000, {trailing: false} );
+
   $(window).on('scroll', function () {
     const documentHeight = $(document).height();
     const windowHeight = $(window).height();
@@ -70,7 +69,7 @@ $(document).ready(function () {
 
     if (scrollBottom < 500) { // Tweak this value
       const query = $('#query').val();
-      searchFlickr( query ); // Don't make too requests: throttle this
+      throttledSearchFlickr( query ); // Don't make too requests: throttle this
     }
   });
 });
