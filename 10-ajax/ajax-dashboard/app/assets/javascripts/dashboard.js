@@ -1,8 +1,17 @@
 $(document).ready(function () {
   setInterval(function () {
-    // Fetch a brother via AJAX
-    $.get('/brother').done(function (b) {
-      $('#brother').text( b );
+    $.getJSON('/info').done(function (info) {
+      $('#brother').text( info.brother );
+      $('#time').text( info.time );
+      $('#uptime').text( info.uptime );
     });
+
+    // $('#brother').load('/brother'); // AJAX
+    // $('#time').load('/time');
+    // $('#uptime').load('/uptime');
+
+    // $.get('/uptime').done(function (u) {
+    //   $('#uptime').text( u );
+    // });
   }, 4000);
 });
