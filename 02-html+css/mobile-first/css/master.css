@@ -47,6 +47,10 @@ footer {
   padding: 0.5em;
 }
 
+/*
+Don't worry about the specific sizes of different devices:
+resize the window and find the minimum width breakpoints that look good to you.
+*/
 @media (min-width: 480px) {
   nav {
     display: block;
