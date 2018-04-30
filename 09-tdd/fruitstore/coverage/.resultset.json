@@ -1,12 +1,28 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/controllers/fruits_controller.rb": [
+        1,
+        1,
+        6,
+        6,
+        6,
+        9,
+        null,
+        null,
+        null
+      ],
+      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/models/fruit.rb": [
         1,
         1,
         null,
         1,
-        1,
+        0,
         null,
         null
       ],
@@ -14,31 +30,8 @@
         1,
         1,
         null
-      ],
-      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/spec/models/shelf_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        null
-      ],
-      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/models/shelf.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/models/apple.rb": [
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/inceptor/Projects/wdi-26/09-tdd/fruitstore/app/models/pear.rb": [
-        1,
-        null
       ]
     },
-    "timestamp": 1525064432
+    "timestamp": 1525067970
   }
 }
