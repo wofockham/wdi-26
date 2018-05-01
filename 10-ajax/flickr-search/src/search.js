@@ -1,19 +1,15 @@
-'use strict';
-
-var state = {
+const state = {
   page: 1,
   lastPage: false
 };
 
-var searchFlickr = function searchFlickr(term) {
-  if (state.lastPage) {
-    return;
-  }
+const searchFlickr = function (term) {
+  if (state.lastPage) { return; }
 
   console.log('Searching Flickr TM for', term);
 
   // the jsoncallback=? here lets us use something called JSONP
-  var flickrURL = 'https://api.flickr.com/services/rest?jsoncallback=?';
+  const flickrURL = 'https://api.flickr.com/services/rest?jsoncallback=?';
 
   // This is actually using JSONP, not AJAX
   // but jQuery lets us pretend it is just AJAX.
@@ -23,22 +19,31 @@ var searchFlickr = function searchFlickr(term) {
     text: term,
     format: 'json',
     page: state.page++
-  }).done(showImages).done(function (r) {
+  }).done( showImages ).done(function (r) {
     if (r.photos.page >= r.photos.pages) {
       state.lastPage = true;
     }
   });
 };
 
-var showImages = function showImages(results) {
-  var generateURL = function generateURL(p) {
-    return ['http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_q.jpg' // Change "q" to something else for different sizes
+const showImages = function (results) {
+  const generateURL = function (p) {
+    return [
+      'http://farm',
+      p.farm,
+      '.static.flickr.com/',
+      p.server,
+      '/',
+      p.id,
+      '_',
+      p.secret,
+      '_q.jpg' // Change "q" to something else for different sizes
     ].join('');
   };
 
   results.photos.photo.forEach(function (photo) {
-    var thumbnailURL = generateURL(photo);
-    var $img = $('<img />', { src: thumbnailURL }); // Or .attr('src', thumbnailURL)
+    const thumbnailURL = generateURL(photo);
+    const $img = $('<img />', {src: thumbnailURL}); // Or .attr('src', thumbnailURL)
     $img.appendTo('#images'); // Or $('#images').append($img);
   });
 };
@@ -46,26 +51,25 @@ var showImages = function showImages(results) {
 $(document).ready(function () {
   $('#search').on('submit', function (event) {
     event.preventDefault();
-    var query = $('#query').val();
+    const query = $('#query').val();
     state.lastPage = false;
     state.page = 1;
     $('#images').empty();
-    searchFlickr(query);
+    searchFlickr( query );
   });
 
-  var throttledSearchFlickr = _.throttle(searchFlickr, 6000, { trailing: false });
+  const throttledSearchFlickr = _.throttle( searchFlickr, 6000, {trailing: false} );
 
   $(window).on('scroll', function () {
-    var documentHeight = $(document).height();
-    var windowHeight = $(window).height();
-    var scrollTop = $(document).scrollTop();
+    const documentHeight = $(document).height();
+    const windowHeight = $(window).height();
+    const scrollTop = $(document).scrollTop();
 
-    var scrollBottom = documentHeight - (windowHeight + scrollTop);
+    const scrollBottom = documentHeight - (windowHeight + scrollTop);
 
-    if (scrollBottom < 500) {
-      // Tweak this value
-      var query = $('#query').val();
-      throttledSearchFlickr(query); // Don't make too requests: throttle this
+    if (scrollBottom < 500) { // Tweak this value
+      const query = $('#query').val();
+      throttledSearchFlickr( query ); // Don't make too requests: throttle this
     }
   });
 });
