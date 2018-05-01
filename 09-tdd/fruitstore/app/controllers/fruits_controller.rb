@@ -6,4 +6,22 @@ class FruitsController < ApplicationController
       format.json { render :json => @fruits }
     end
   end
+
+  def create
+    @fruit = Fruit.new fruit_params # new fruit in memory only
+    if @fruit.save
+      redirect_to @fruit
+    else
+      render :new
+    end
+  end
+
+  def show
+    render :plain => 'something about fruit'
+  end
+
+  private
+  def fruit_params
+    params.require(:fruit).permit(:name)
+  end
 end

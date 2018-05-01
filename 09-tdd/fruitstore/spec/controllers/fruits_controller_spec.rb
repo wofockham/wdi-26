@@ -58,7 +58,7 @@ RSpec.describe FruitsController, type: :controller do
       end
 
       it 'should redirect to the show page' do
-        expect(response).to redirect_to(assigns(:fruit)) # Show page
+        expect(response).to redirect_to(fruit_path(assigns(:fruit))) # Show page
       end
 
       it 'should increase the number of fruits in the database' do
@@ -75,7 +75,7 @@ RSpec.describe FruitsController, type: :controller do
         expect(response).to render_template(:new)
       end
 
-      it 'should not the number of fruits' do
+      it 'should not increase the number of fruits in the database' do
         expect(Fruit.count).to eq 0
       end
     end
