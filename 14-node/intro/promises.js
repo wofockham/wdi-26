@@ -1,3 +1,4 @@
+const fs = require('fs');
 // You can convert any callback function to a Promise
 // returning function like so:
 const readFile = function (filename) {
@@ -11,6 +12,31 @@ const readFile = function (filename) {
     });
   });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Homework
 // 1. Create a function called wait(n) which returns a promise that will run your .then
