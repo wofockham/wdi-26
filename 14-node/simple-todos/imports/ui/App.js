@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Todo List</h1>
+          <h1>Todo List ({this.props.incompleteCount})</h1>
 
           <label className="hide-completed">
             <input type="checkbox" readOnly checked={this.state.hideCompleted} onClick={this.toggleHideCompleted} />
@@ -72,6 +72,7 @@ class App extends Component {
 // Higher Order Function
 export default withTracker(() => {
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch()
+    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+    incompleteCount: Tasks.find({ done: { $ne: true } }).count()
   }
 })(App); // You are not expected to understand this.
