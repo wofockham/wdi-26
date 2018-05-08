@@ -1,0 +1,10 @@
+<h1>Paintr</h1>
+
+<%= color_field_tag :color, '#ffffff', :autofocus => true %>
+<%= button_tag 'Add', :id => 'add-color' %>
+
+<div id="palette"></div>
+
+<div id="canvas">
+  <% 10_000.times { %><div class="pixel"></div><% } %>
+</div>
