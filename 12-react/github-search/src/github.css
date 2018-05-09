@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+}
+
+.info, .repos {
+  text-align: left;
+  display: inline-block;
+  max-width: 50%;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 0.5em;
+  vertical-align: top;
+}
