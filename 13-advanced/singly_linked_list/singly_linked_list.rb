@@ -1,4 +1,7 @@
 class SinglyLinkedList
+
+  include Enumerable # Mixin (kind of like multiple inheritance)
+
   class Node
     attr_accessor :value, :next
 
@@ -36,9 +39,9 @@ class SinglyLinkedList
   end
 
   def remove # AKA shift
-  end
-
-  def length # AKA .count, .size
+    node = @head
+    @head = @head.next
+    node
   end
 
   def find(needle)
@@ -46,12 +49,25 @@ class SinglyLinkedList
   end
 
   def reverse
+    reverse_list = SinglyLinkedList.new
+    node = @head
+    while node
+      reverse_list.prepend(node.value)
+      node = node.next
+    end
+    reverse_list
   end
 
   def reverse!
+    @head = reverse.head
   end
 
   def each
+    node = @head
+    while node
+      yield node.value if block_given?
+      node = node.next
+    end
   end
 
   # Also: .map, .inject
