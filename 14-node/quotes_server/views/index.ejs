@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Land o' Quotes</title>
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+<body>
+  <h1>Land o' Quotes</h1>
+
+  <form action="/quotes" method="post">
+    <input placeholder="W.C Fields" name="name">
+    <input placeholder="Something about camels" name="quote">
+    <button>Submit</button>
+  </form>
+
+  <ul>
+    <% for (let i = 0; i < quotes.length; i++) { %>
+      <li>
+        <span><%= quotes[i].quote %> &mdash;</span>
+        <span><%= quotes[i].name %></span>
+      </li>
+    <% } %>
+  </ul>
+</body>
+</html>
