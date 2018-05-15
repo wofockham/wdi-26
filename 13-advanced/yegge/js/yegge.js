@@ -36,3 +36,11 @@ const recursiveReverse = function (s) {
 }
 
 console.log('SoMeStRiNg', recursiveReverse('SoMeStRiNg'));
+
+const twelveTimesTable = function () {
+  for (let i = 0; i <= 12; i++) {
+    console.log( `${ i } x 12 = ${ i * 12 }` );
+  }
+}
+
+twelveTimesTable();

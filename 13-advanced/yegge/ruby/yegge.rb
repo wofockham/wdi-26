@@ -17,3 +17,12 @@ def reverse(str)
     str.chars.last + reverse( str[0...str.length - 1] )
   end
 end
+
+def twelve_times_table
+  (0..12).each do |m|
+    puts "#{ m } x 12 = #{ m * 12 }" # sprintf("%d x 12 = %d", m, m * 12) 
+  end
+end
+
+require 'pry'
+binding.pry
