@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient; // or you could destructure
+const { MongoClient, ObjectID } = require('mongodb');
 
 let db;
 
@@ -27,9 +27,9 @@ app.set('view engine', 'ejs');
 
 // Index (Read) Action
 app.get('/', function (req, res) {
-  const cursor = db.collection('quotes').find({}).toArray((err, results) => {
+  db.collection('quotes').find({}).toArray((err, results) => {
     // When we have the results, we can render them
-    res.render('index.ejs', {quotes: results})
+    res.render('index.ejs', {quotes: results});
   });
 });
 
@@ -42,5 +42,16 @@ app.post('/quotes', function (req, res) {
 
     console.log('saved to the db');
     res.redirect('/');
+  })
+});
+
+// Delete Action
+app.delete('/quotes/:id', function (req, res) {
+  db.collection('quotes').remove({_id: ObjectID(req.params.id)}, (err) => {
+    if (err) {
+      return console.error(err);
+    }
+
+    res.end();
   })
 });
